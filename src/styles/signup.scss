@@ -1,0 +1,97 @@
+.signup {
+  height: 150vh;
+  section {
+    max-width: 450px;
+    height: 100%;
+    margin: auto;
+    padding-top: 4%;
+
+    p {
+      text-align: center;
+      font-size: medium;
+      font-weight: 900;
+      margin: 10px;
+      letter-spacing: 1px;
+      color: grey;
+      font: italic;
+    }
+
+    .login-with-fb-div {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 1.4rem;
+      button {
+        background-color: #1877f2;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 10px 10px;
+        width: 100%;
+        font-size: 16px;
+        letter-spacing: 1px;
+        cursor: pointer;
+      }
+    }
+
+    .signup-or {
+      //   background-color: orange;
+      padding-bottom: 10px;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      max-width: 100%;
+      margin: 0 1rem;
+      justify-content: center;
+      // border: 0.4px solid rgba(0, 0, 0, 0.228);
+      padding: 0 1rem;
+      input {
+        padding: 10px 0.5rem;
+        border-radius: 5px;
+        font-size: medium;
+        font-weight: bold;
+        outline: none;
+        border: 0.5px solid orange;
+        font-weight: 300;
+      }
+      .input-err-p {
+        // background-color: orange;
+        color: red;
+        text-align: left;
+        margin: -5px 0;
+        padding: 2px 8px;
+        font-size: small;
+        letter-spacing: 1px;
+        font-weight: lighter;
+      }
+      button {
+        padding: 8px 10px;
+        background-color: black;
+        color: white;
+        font-weight: bolder;
+        font-size: 15px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        margin-top: 10px;
+        &:disabled {
+          background-color: rgb(26, 26, 26);
+        }
+      }
+      p {
+        text-align: center;
+      }
+      a {
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        color: black;
+      }
+    }
+  }
+}

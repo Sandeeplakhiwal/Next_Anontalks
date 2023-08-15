@@ -1,4 +1,8 @@
 import mongoose from "mongoose";
+import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import { errorHandler } from "@/middlewares/error";
 
 export const connectDB = async () => {
   try {
@@ -10,4 +14,28 @@ export const connectDB = async () => {
   } catch (error) {
     console.log("Error connecting to the database:", error);
   }
+};
+
+export const cookieSetter = (res, token, set) => {
+  return cookies().set("token", set ? token : "", {
+    path: "/",
+    httpOnly: true,
+    maxAge: set ? 15 * 24 * 60 * 60 * 1000 : 0,
+  });
+};
+
+export const generateToken = (_id) => {
+  return jwt.sign({ _id }, process.env.JWT_SECRET);
+};
+
+export const isMatch = async (password, hashedPassword) => {
+  return bcrypt.compare(password, hashedPassword);
+};
+
+export const isAuthenticated = async (cookies, res) => {
+  let token = cookies().get("token");
+  if (!token) return errorHandler(res, 401, "Not Logged In");
+  const decoded = jwt.verify(token.value, process.env.JWT_SECRET);
+  const user = decoded._id;
+  return user;
 };
