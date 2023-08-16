@@ -1,7 +1,10 @@
-export default function Home() {
+import Home from "@/components/server/home/Home";
+import "../styles/home_comp.scss";
+
+export default function Page() {
   return (
-    <main>
-      <h1>Home</h1>
-    </main>
+    <div className="wrapper">
+      <Home />
+    </div>
   );
 }
